@@ -1,0 +1,26 @@
+[
+    { "keys": ["alt+left"], "command": "granular_move_left_by_subword" },
+    { "keys": ["alt+right"], "command": "granular_move_right_by_subword" },
+
+    { "keys": ["shift+alt+left"], "command": "granular_move_left_by_subword", "args": {"extend": true}},
+    { "keys": ["shift+alt+right"], "command": "granular_move_right_by_subword", "args": {"extend": true}},
+
+    // moving with super
+    { "keys": ["super+alt+left"], "command": "granular_move_left_by_bigword", "context": [{"key": "granular_tunneling_not_there_or_does_not_exist_caret_at_end_of_selection", "operator": "equal", "operand": false }, {"key": "panel_visible", "operator": "equal", "operand": false}]},
+    { "keys": ["super+alt+left"], "command": "close_panel_and_granular_move_left_by_bigword", "context": [{"key": "panel_visible", "operator": "equal", "operand": true}]},
+
+    { "keys": ["super+alt+right"], "command": "granular_move_right_by_bigword", "context": [{"key": "exists_caret_at_beginning_of_selection", "operator": "equal", "operand": false }, {"key": "panel_visible", "operator": "equal", "operand": false}]},
+    { "keys": ["super+alt+right"], "command": "close_panel_and_granular_move_right_by_bigword", "context": [{ "key": "panel_visible", "operator": "equal", "operand": true}]},
+
+    { "keys": ["shift+super+alt+left"], "command": "granular_move_left_by_bigword", "args": {"extend": true}, "context": [{"key": "exists_caret_at_end_of_selection", "operator": "equal", "operand": false}, {"key": "panel_visible", "operator": "equal", "operand": false}]},
+    { "keys": ["shift+super+alt+left"], "command": "close_panel_and_granular_move_left_by_bigword", "args": {"extend": true}, "context": [{"key": "panel_visible", "operator": "equal", "operand": true}]},
+
+    { "keys": ["shift+super+alt+right"], "command": "granular_move_right_by_bigword", "args": {"extend": true}, "context": [{"key": "exists_caret_at_beginning_of_selection", "operator": "equal", "operand": false }, {"key": "panel_visible", "operator": "equal", "operand": false}]},
+    { "keys": ["shift+super+alt+right"], "command": "close_panel_and_granular_move_right_by_bigword", "args": {"extend": true}, "context": [{ "key": "panel_visible", "operator": "equal", "operand": true}]},
+
+    // deleting with super
+    { "keys": ["alt+backspace"], "command": "granular_delete", "args": {"forward": false, "by": "subword"} },
+    { "keys": ["alt+delete"], "command": "granular_delete", "args": {"forward": true, "by": "subword"} },
+    { "keys": ["shift+alt+backspace"], "command": "granular_delete", "args": {"forward": false, "by": "bigword"}, "context": [{ "key": "exists_empty_selection" }]},
+    { "keys": ["shift+alt+delete"], "command": "granular_delete", "args": {"forward": true, "by": "bigword"}, "context": [{ "key": "exists_empty_selection" }]},
+]
